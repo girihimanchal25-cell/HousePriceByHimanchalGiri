@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add House Data</title>
+    <style>
+   body {
+       margin: 0px;
+       padding: 175px;
+       height: 50%;
+       display: flex;
+       justify-content: center;
+       background-color:#F2F0C4;
+       color: rgb(0, 0, 26);
+        background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80');
+        background-size: 100%;
+        background-position: center;
+        align-items: center;
+    }
+    .A{
+       background: rgb(207, 207, 161);
+       padding: 30px ;
+       border-radius: 12px;
+       box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+       width: 350px;
+       text-align: center;
+    }
+    .input-group{
+        margin-bottom: 20px;
+        text-align: left;
+    } 
+    input{
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #aaa;
+    }
+    button
+    {
+        width: 50%; 
+        margin: 30px;
+        padding: 10px;
+        background: #6f4109;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+        lable{
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #444;
+    }
+
+.nav {
+    list-style: none;
+    margin: 15px;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.nav li {
+    display: inline-block;
+}
+ .nav li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+} 
+    </style>
+</head>
+<body> 
+    <ul class="nav">
+        <li><a href="{% url 'home' %}">-HOME</a></li>
+    </ul>
+      <div class="A">
+    <header>
+          <h2>Predict House Details</h2>
+    </header>
+    <div class="container">
+      
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="Area" placeholder="Enter Area (sqft)" required>
+            <button type="submit">Predict Price</button>
+        </form>
+    </div>
+
+    <!-- <div>
+        <h2>According to data : Your price is : </h2>
+    </div> -->
+</div>
+</body>
+</html>

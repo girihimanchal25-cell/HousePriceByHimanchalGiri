@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV Files</title>
+</head>
+<style>
+      body {
+       margin: 0px;
+       padding: 200px;
+       height: 60%;
+       display: flex;
+       justify-content: center;
+        background-color:#F2F0C4;
+       color: rgb(0, 0, 26);
+    }
+
+    header{
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    input{
+        width: 80%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #3d3c3c;
+    }
+    .B{
+      width: 60%;
+        padding:10px;
+        margin: 35px;
+        border-radius: 6px;
+        text-align: center;
+    }
+    .A{
+      text-align: center;
+    }
+    .nav {
+    list-style: none;
+    margin: 15px;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.nav li {
+    display: inline-block;
+}
+ .nav li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 18px;
+} 
+
+
+input[type="submit"] {
+    background: #6f4109;
+    color: white;               
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background: #ac7531;
+}
+
+</style> 
+<body>
+    <ul class="nav">
+        <li><a href="{% url 'file' %}">-BACK</a></li>
+    </ul>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     <div class="A">
+       <label for="">Add CSV File : </label>
+    <br><input type="file" name="csv_file" accept=".csv" >
+    <br>
+    <br></div>
+    <div class="B"><label for="">Submit: </label>
+    <br>
+    <input type="submit" value="Upload data">
+  </div>
+ </div> 
+</form>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All details page</title>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px; 
+        background-color:#F2F0C4;
+        color: rgb(0, 0, 26);
+        background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80');
+        width: 100%;
+        height: 700px;
+        background-size: cover;
+    }
+
+    .brand-name {
+        background-color: rgb(69, 48, 12);
+        color: aliceblue;
+        font-size: 30px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    table, tr,th,td {
+        padding: 10px;
+        margin: 20px;
+        text-align: center;
+        border-collapse: collapse;
+        border: 1px solid rgb(29, 16, 3);
+        border-radius: 5px;
+
+    }
+    .section-1 {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        position: absolute;
+        top: 10px;
+        padding: 20px;
+        /* background: rgba(255,255,255,0.85); */
+    }
+
+    .bg-text {
+        /* background-color: rgb(0, 0, 0); */
+        background-color: rgba(160, 107, 41, 0.508);
+        color:rgb(29, 16, 3);
+        font-weight: bold;
+        border: 2px solid rgb(0, 0, 0);
+        position: static;
+    }
+    .col{
+        background-color: rgba(150, 60, 12, 0.316);
+        text-decoration: solid;
+    }
+    button{
+        width: 50%; 
+        padding: 10px;
+        background: #b7901b47;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    a:hover{
+        color: rgb(231, 231, 231);
+    }
+
+    header {
+    background-color: rgb(69, 48, 12);
+    padding: 15px;
+    position: relative;
+    color: white;
+}
+
+header .nav {
+    list-style: none;
+    margin: 15px;
+    padding: 0;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+header .nav li {
+    display: inline-block;
+}
+
+header .nav li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 18px;
+}
+</style>
+</head>
+
+<body> 
+ 
+    <header> 
+        <div class="brand-name"> 
+            House Details (Read Data Page)
+        </div>
+      <ul class="nav">
+        <li><a href="{% url 'home' %}">-HOME</a></li>
+    </ul>
+    </header>
+    <section class="section-1">
+        <table class="bg-text">
+            <tr>
+                <th class="col">
+                    <h2>Area of house</h2>
+                </th>
+                <th class="col">
+                    <h2>Price of house</h2>
+                </th>
+                <th class="col">
+                    <h2>Update details of house</h2>
+                </th>
+                <th class="col">
+                    <h2>Delete Details of house </h2>
+                </th>
+            </tr>
+            {% for x in data %}
+            <tr>
+                <td>
+                    <h2>{{x.Area}}</h2>
+                </td>
+                <td>
+                    <h2>{{x.Price}}</h2>
+                </td>
+
+                <td>
+                    <button><a href="{% url 'update' x.id  %}">update details</a></button>
+                </td>
+
+                <td>
+                    <button><a href="{% url 'deletedetails' x.id %}">delete details </a></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+</body>
+
+</html>
